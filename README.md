@@ -25,6 +25,7 @@ Paste this code into a new Max Patch to try it out.
 
 
 ----------begin_max5_patcher----------
+
 320.3ocmRErSCCCC8b5WQjOWpZFC1fa7cfPSoMlsL0kTkjNFLs+cRbaGcHDC
 wEGYmW764mywLFTYOfdf+H+YNicLiwnRoBrgbFrSdntQ5IXfoaWE5f79qrcg
 FLDduE66AnMAHmCURyZf+x.pVYndi1rdkCqC8.EKdnnLmKlKRG2UlhyhwyuQ
@@ -33,4 +34,5 @@ qH5rUau41Q1d0ZBF4NhK3ImV1.mYvEqGP2JzHqZHDkC2EUr1DUIoewjV40eP
 RQuO8qNj35Nz+2EJm3BD4Pi178OMzDjpeo03sct5w+FC6R9WifB8AsQFzVyD
 LhKvrQqTnY5BUo8ocr5mEmrscO57CsjDRbCs05Ro2mSoZSeJ0Qvg60i3Wlk5
 1orOA7Dj3NN
+
 -----------end_max5_patcher-----------

@@ -7,6 +7,8 @@ This class is used for receiving data from Max 6 to Java.
 * Doesn't like negative values. -1 is 65535. -2 is 65534 and so on.
 * Can't use floats or doubles. Only accepts Integers from Max. 
 * Only support local use. (IP: 127.0.0.1)
+* Use tentative float calculation at own risk. You might not get accurate data.
+
 
 
 ## How to use

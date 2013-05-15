@@ -21,6 +21,8 @@
 //
 //  Contact: contact@drudoo.com
 //  
+//  Download the newest version from https://github.com/Drudoo/ReceiveFromMax
+//
 //
 
 
@@ -31,11 +33,15 @@ Known Bugs:
 	* Can't use values higher than 65535. 65536 is 0. 65537 is 1 and so on.
 	* Doesn't like negative values. -1 is 65535. -2 is 65534 and so on.
 	* Can't use floats or doubles. Only accepts Integers from Max. 
+	* Only support local use. (IP: 127.0.0.1)
+	* Use tentative float calculation at own risk. You might not get accurate data.
 
 
 -----------------------------*/
 import java.io.*;
 import java.net.*;
+import java.nio.ByteOrder;
+import java.nio.*;
 
 public class ReceiveFromMax {
 
@@ -44,7 +50,7 @@ public class ReceiveFromMax {
 	private int integerNumberTotal;
 	private int port;
 
-	/* Used for tentative float calculations. Not yet supported
+	/* Used for tentative float calculations. Not yet supported 
 	private double a = 0;
 	private double b = 0;
 	private double c = 0;
@@ -78,7 +84,6 @@ public class ReceiveFromMax {
 			DatagramSocket socket = new DatagramSocket(port); //Set up the connection.
 
 			byte[] buffer = new byte[512]; //Create a buffer
-
 			for (; ; ) { //Run a for loop until we receive a number from Max 6.
 				DatagramPacket packet = new DatagramPacket(buffer, buffer.length); //Create a new packet and store it in the buffer with the buffer length. 
 				socket.receive(packet); //Receive the data from the socket (port) and store it in the packet.
@@ -91,6 +96,7 @@ public class ReceiveFromMax {
 					if (data == -1) { //If the data is equal to -1, we have reached EOF.
 						break;
 					} else {
+						//System.out.print((int)data + " ");
 						if (packet.getLength() > 12) {
 							//Our number is a float and cannot be translated or returned.
 							
@@ -118,6 +124,7 @@ public class ReceiveFromMax {
 							if (i == 15) d = (int) data;
 
 							*/
+
 							isFloat = true;
 						}
 
@@ -127,16 +134,18 @@ public class ReceiveFromMax {
 						}
 					}
 				}
+				//System.out.println();
+				
 
 				if (isFloat) {
 					/* 	Used for tentative float calculations. Not yet supported.
-						if b or c or d is larger than 128 we will have a margin of error -/+ 0.1-0.25.
+						if b or c or d is larger than 128 we will have a margin of error -/+ 0.1-0.25. 
 
 					double temp;
 					temp = a + ((b/128)*a) + ((c/128)*(a/256)) + ((d/128)*(a/(256*256)));
 					System.out.println(temp);
-					
 					*/
+					
 					System.out.println("Trying to parse float value...\nCannot return value");
 					closeConnection(socket);
 					break;

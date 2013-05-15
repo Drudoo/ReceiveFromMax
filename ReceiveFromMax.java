@@ -40,8 +40,7 @@ Known Bugs:
 -----------------------------*/
 import java.io.*;
 import java.net.*;
-import java.nio.ByteOrder;
-import java.nio.*;
+
 
 public class ReceiveFromMax {
 
@@ -87,7 +86,7 @@ public class ReceiveFromMax {
 			for (; ; ) { //Run a for loop until we receive a number from Max 6.
 				DatagramPacket packet = new DatagramPacket(buffer, buffer.length); //Create a new packet and store it in the buffer with the buffer length. 
 				socket.receive(packet); //Receive the data from the socket (port) and store it in the packet.
-
+				
 				ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData()); //Make a new bytearray from the packets data.
 				boolean isFloat = false;
 
